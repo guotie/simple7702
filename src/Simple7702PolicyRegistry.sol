@@ -19,8 +19,12 @@ contract Simple7702PolicyRegistry {
     event WhitelistFlagsUpdated(bool enableSponsorWhitelist, bool enableTargetWhitelist);
 
     modifier onlyOwner() {
-        if (msg.sender != owner) revert NotOwner(msg.sender);
+        _onlyOwner();
         _;
+    }
+
+    function _onlyOwner() internal view {
+        if (msg.sender != owner) revert NotOwner(msg.sender);
     }
 
     constructor(address initialOwner) {

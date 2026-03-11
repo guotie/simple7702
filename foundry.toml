@@ -3,4 +3,8 @@ src = "src"
 out = "out"
 libs = []
 solc_version = "0.8.24"
+optimizer = true
+optimizer_runs = 800
 
+[lint]
+exclude_lints = ["mixed-case-function"]
